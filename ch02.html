@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tips</title>
+    <style>
+        .icon-delete {
+            display: inline-block;
+            width: 5em;
+            height: 5em;
+            background: url(trash.svg) no-repeat;
+            background-size: 100%;
+            text-indent: -9999px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            font-size: 14px;
+        }
+        .button{
+            display: inline-block;
+            padding: .5em 1em;
+            position: absolute;
+            left: 35%;
+            top: 35%;
+            font-size: 14px;
+            border-radius: .2em;
+            color: white;
+            background-color: black;
+            text-decoration: none;
+        }
+        .button[data-direction="left"]{
+            left: 25%;
+            top: 25%;
+        }
+        .button[data-direction="right"]{
+            left: 15%;
+            top: 15%;
+        }
+        .css-tips::before {
+            content: attr(data-title);
+            position: absolute;
+            text-indent: 0;
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: .3em .5em;
+            border-radius: .3em;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s linear 0.2s;
+        }
+
+        .css-tips[data-direction="top"]::before {
+            bottom: calc(100% + 0.5em);
+            left: 1em;
+            transform: translate(0, 15px);
+        }
+        .css-tips[data-direction="left"]::before {
+            padding: .6em 0;
+            width: 3em;
+            left: calc(100% + 0.5em);
+            bottom:0em;
+            transform: translate(-15px, 0);
+        }
+        .css-tips[data-direction="button"]::before{
+            top: calc(100% + 0.5em);
+            left: 0.5em;
+            transform: translate(0, -15px);
+        }
+        .css-tips[data-direction="right"]::before {
+            padding: .6em 0;
+            width: 3em;
+            right: calc(100% + 0.5em);
+            bottom:0em;
+            transform: translate(15px, 0);
+        }
+        .css-tips::after {
+            content: " ";
+            position: absolute;
+            border: .5em solid;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.2s linear 0.2s;
+        }
+
+        .css-tips[data-direction="top"]::after {
+            bottom: calc(100% - 0.5em);
+            left: 2em;
+            border-color: black transparent transparent;
+            transform: translate(0, 15px);
+        }
+        .css-tips[data-direction="left"]::after {
+            left: calc(100% - 0.5em);
+            border-color: transparent black transparent transparent;
+            transform: translate(-15px, 0);
+        }
+        .css-tips[data-direction="button"]::after {
+            top: calc(100% - 0.5em);
+            right: 1.5em;
+            border-color: transparent transparent black;
+            transform: translate(0, -15px);
+        }
+        .css-tips[data-direction="right"]::after {
+            right: calc(100% - 0.5em);
+            border-color: transparent transparent transparent black;
+            transform: translate(15px, 0);
+        }
+        .css-tips:hover::before,
+        .css-tips:hover::after,
+        .css-tips:focus::before,
+        .css-tips:focus::after {
+            visibility: visible;
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="javscript:" class="icon-delete css-tips" data-title="删除" data-direction="top">删除</a>
+    <a href="javscript" class="css-tips button" data-title="向左" data-direction="left">提示</a>
+    <a href="javscript" class="css-tips button" data-title="向下" data-direction="button">提示</a>
+    <a href="javscript" class="css-tips button" data-title="向右" data-direction="right">提示</a>
+</body>
+
+</html>
